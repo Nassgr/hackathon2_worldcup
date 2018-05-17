@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Test</h1>
+    {% for team in teams %}
+        <h1>{{ team.time }}</h1>
+    {% endfor %}
+
+{% endblock %}

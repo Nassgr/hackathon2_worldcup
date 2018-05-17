@@ -18,4 +18,27 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/courses", name="courses")
+     */
+    public function coursesAction()
+    {
+        return $this->render('default/courses.html.twig');
+    }
+
+    /**
+     * @Route("/courses/1", name="course")
+     */
+    public function courseAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $teams = $em->getRepository('AppBundle:team')->findAll();
+        $time = rand(0, 3600);
+        $time = date('m:s', $time);
+        foreach ($teams as $team) {
+            $team->setTime($time);
+        }
+        return $this->render('default/course.html.twig', ['teams' => $teams]);
+    }
 }
