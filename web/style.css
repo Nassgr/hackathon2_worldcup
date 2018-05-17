@@ -22,7 +22,9 @@ a.nav-link:hover:after {
     transform: scaleX(0.4);
 }
 body{
-    background-color: lightgoldenrodyellow;
+    background-image: url("https://www.ethz.ch/en/news-and-events/eth-news/news/2014/02/citius-bob-in-sotschi-am-start/_jcr_content/news_content/textimage_1/image.imageformat.lightbox.1672232884.jpg");
+    object-fit: cover;
+    color: goldenrod;
 }
 
 img.home {
@@ -48,11 +50,11 @@ img.flag {
     font-weight: bold;
 }
 
-.player-title{
+.player-title {
     margin-top: 50px;
     background-color: black;
-    color:goldenrod;
-
+    color: goldenrod;
+}
 .card p {
     font-size: calc(15px + 10 * (100vw - 400px) / 1200);
 }
