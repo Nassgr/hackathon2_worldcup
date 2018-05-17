@@ -12,6 +12,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Player
 {
+
+
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\team", inversedBy="players")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $teamid;
+
+
     /**
      * @var int
      *
@@ -186,5 +198,39 @@ class Player
     {
         return $this->role;
     }
-}
 
+
+
+    public function __toString()
+
+    {
+
+        return $this->name. " " .$this->surname;
+
+
+    }
+
+    /**
+     * Set teamid
+     *
+     * @param \AppBundle\Entity\team $teamid
+     *
+     * @return Player
+     */
+    public function setTeamid(\AppBundle\Entity\team $teamid)
+    {
+        $this->teamid = $teamid;
+
+        return $this;
+    }
+
+    /**
+     * Get teamid
+     *
+     * @return \AppBundle\Entity\team
+     */
+    public function getTeamid()
+    {
+        return $this->teamid;
+    }
+}

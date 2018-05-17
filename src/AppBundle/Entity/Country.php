@@ -94,4 +94,3 @@ class Country
         return $this->picture;
     }
 }
-
