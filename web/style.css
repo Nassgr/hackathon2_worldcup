@@ -94,3 +94,14 @@ img.cardPicture {
     background-color: gold;
     border-color: gold;
 }
+
+form {
+    background-color: goldenrod;
+    border-radius: 10px;
+    border-color: green;
+}
+
+img.adminForm {
+    width: 30vw;
+    height: 20vw;
+}
