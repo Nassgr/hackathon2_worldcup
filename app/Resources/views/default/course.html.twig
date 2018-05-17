@@ -1,9 +1,74 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Test</h1>
-    {% for team in teams %}
-        <h1>{{ team.time }}</h1>
-    {% endfor %}
+    <h1 class="text-center">Tableau des scores</h1>
+    <div class="row">
+        <div class="col-4 text-center">
+            <h2 class="p-2">Qualification</h2>
+        </div>
+        <div class="col-4 text-center">
+            <h2 class="p-2">Podium</h2>
+        </div>
+        <div class="col-4 text-center">
+            <h2 class="p-2">Vainqueur</h2>
+        </div>
+    </div>
+
+    <div class="d-inline-flex">
+    <table class="table-bordered table-dark table-hover score ml-5">
+        <thead>
+            <tr>
+                <th>Nom de l'équipe</th>
+                <th>Drapeau</th>
+                <th>Temps</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+            <tr>
+                <td align="center">{{ team.nom }}</td>
+                <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
+                <td align="center">{{ team.temps }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table-bordered table-dark table-hover score ml-5">
+        <thead>
+        <tr>
+            <th>Nom de l'équipe</th>
+            <th>Drapeau</th>
+            <th>Temps</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in teamsPodium %}
+            <tr>
+                <td align="center">{{ team.nom }}</td>
+                <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
+                <td align="center">{{ team.temps }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table-bordered table-dark table-hover score ml-5">
+        <thead>
+        <tr>
+            <th>Nom de l'équipe</th>
+            <th>Drapeau</th>
+            <th>Temps</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ winner.nom }}</td>
+                <td align="center"><img class="flag" src="{{ winner.countryid.picture }}"></td>
+                <td align="center">{{ winner.temps }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
 
 {% endblock %}

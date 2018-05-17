@@ -34,11 +34,18 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $teams = $em->getRepository('AppBundle:team')->findAll();
-        $time = rand(0, 3600);
-        $time = date('m:s', $time);
         foreach ($teams as $team) {
-            $team->setTime($time);
+            $time = date('m:s', rand(0, 3600));
+            $team->setTemps($time);
+            $em->createQueryBuilder()->update('AppBundle:team', 't')->set('t.temps', $em->createQueryBuilder()->expr()->literal($time))
+                ->where('t.id = ?1')
+                ->setParameter(1, $team->getId())
+                ->getQuery()->execute();
         }
-        return $this->render('default/course.html.twig', ['teams' => $teams]);
+        $teams = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC']);
+        $teamsPodium = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC'], 3, 0);
+        $winner = $teamsPodium[0];
+
+        return $this->render('default/course.html.twig', ['teams' => $teams, 'teamsPodium' => $teamsPodium, 'winner' => $winner]);
     }
 }
