@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Country
 {
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\team", mappedBy="countryid")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $teams;
+
+
     /**
      * @var int
      *
@@ -92,5 +100,29 @@ class Country
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+     * Set teams
+     *
+     * @param \AppBundle\Entity\team $teams
+     *
+     * @return Country
+     */
+    public function setTeams(\AppBundle\Entity\team $teams = null)
+    {
+        $this->teams = $teams;
+
+        return $this;
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \AppBundle\Entity\team
+     */
+    public function getTeams()
+    {
+        return $this->teams;
     }
 }

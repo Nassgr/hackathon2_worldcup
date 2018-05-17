@@ -14,6 +14,12 @@ class team
 {
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $countryid;
+
+    /**
     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="teamid")
     * @ORM\JoinColumn(nullable=false)
     */
@@ -185,4 +191,28 @@ class team
     }
 
 
+
+    /**
+     * Set countryid
+     *
+     * @param \AppBundle\Entity\Country $countryid
+     *
+     * @return team
+     */
+    public function setCountryid(\AppBundle\Entity\Country $countryid)
+    {
+        $this->countryid = $countryid;
+
+        return $this;
+    }
+
+    /**
+     * Get countryid
+     *
+     * @return \AppBundle\Entity\Country
+     */
+    public function getCountryid()
+    {
+        return $this->countryid;
+    }
 }

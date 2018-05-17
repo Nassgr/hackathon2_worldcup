@@ -1,26 +1,44 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('rotating-card.css') }}">
+    {% endblock %}
 {% block body %}
-    <div class="container-fluid">
-        <div class="player-title text-center">
-            <h1>The Players</h1>
-        </div>
+    <div class="container">
+        <div class="row">
+            {% for player in players %}
+            <div class="col-sm-4">
 
-        {% for player in players %}
 
-            <div class="player-card text-center" style="max-width: 20rem;">
-                <h2 class="card-title text-center">{{ player.name }} {{ player.surname }}</h2>
-                <img class="card-img-top" src="{{ player.picture }}"  width="100px" height="250px" alt="Card image cap">
-                <div class="card-body">
+                <figure class="snip1477" >
+                    <img class= "img-fluid" src="{{ player.picture }}" />
+                    <div class="title">
+                        <div>
+                            <h2>{{ player.name }}</h2>
+                            <h4>{{ player.surname }}</h4>
+                        </div>
+                    </div>
+                    <figcaption>
 
-                    <p class="card-text text-center">{{ player.age }} ans</p>
-                    <a href="#" class="btn btn-success">{{ player.role }}</a>
-                </div>
+                        <h3>Age : {{ player.age }} ans</h3>
+                        <h3>Role : {{ player.role }}</h3>
+                    </figcaption>
+                    <a href="#"></a>
+                </figure>
             </div>
-        {% endfor %}
+
+
+
+            {% endfor %}
         </div>
-    <ul>
-        <li>
-            <a href="{{ path('player_new') }}">Create a new player</a>
-        </li>
-    </ul>
+
+    </div>
+
+
+
 {% endblock %}

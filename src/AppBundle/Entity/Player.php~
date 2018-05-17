@@ -199,29 +199,7 @@ class Player
         return $this->role;
     }
 
-    /**
-     * Set team
-     *
-     * @param \AppBundle\Entity\Team $team
-     *
-     * @return Player
-     */
-    public function setTeam(\AppBundle\Entity\Team $team)
-    {
-        $this->team = $team;
 
-        return $this;
-    }
-
-    /**
-     * Get team
-     *
-     * @return \AppBundle\Entity\Team
-     */
-    public function getTeam()
-    {
-        return $this->team;
-    }
 
     public function __toString()
 
@@ -230,5 +208,29 @@ class Player
         return $this->name. " " .$this->surname;
 
 
+    }
+
+    /**
+     * Set teamid
+     *
+     * @param \AppBundle\Entity\team $teamid
+     *
+     * @return Player
+     */
+    public function setTeamid(\AppBundle\Entity\team $teamid)
+    {
+        $this->teamid = $teamid;
+
+        return $this;
+    }
+
+    /**
+     * Get teamid
+     *
+     * @return \AppBundle\Entity\team
+     */
+    public function getTeamid()
+    {
+        return $this->teamid;
     }
 }
