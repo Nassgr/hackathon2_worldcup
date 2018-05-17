@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="player-title text-center">
+            <h1>The Players</h1>
+        </div>
+
+        {% for player in players %}
+
+            <div class="player-card text-center" style="max-width: 20rem;">
+                <h2 class="card-title text-center">{{ player.name }} {{ player.surname }}</h2>
+                <img class="card-img-top" src="{{ player.picture }}"  width="100px" height="250px" alt="Card image cap">
+                <div class="card-body">
+
+                    <p class="card-text text-center">{{ player.age }} ans</p>
+                    <a href="#" class="btn btn-success">{{ player.role }}</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    <ul>
+        <li>
+            <a href="{{ path('player_new') }}">Create a new player</a>
+        </li>
+    </ul>
+{% endblock %}
