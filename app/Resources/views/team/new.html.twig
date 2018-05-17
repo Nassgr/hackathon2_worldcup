@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center">Country creation</h1>
+    <h1 class="text-center">Team creation</h1>
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     <div class="row">
         <div class="col-2 mx-auto">
@@ -14,6 +14,10 @@
                 <div class="p-2">
                     Nombre de joueur:
                     {{ form_widget(form.nBjoueur) }}
+                </div>
+                <div class="p-2">
+                    Pays:
+                    {{ form_widget(form.countryid) }}
                 </div>
                 <div class="p-2">
                     <input type="submit" value="Create" />
