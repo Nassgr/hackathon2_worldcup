@@ -123,4 +123,9 @@ class Country
     {
         return $this->teams;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
