@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Nbjoueur</th>
                 <th>Temps</th>
@@ -16,7 +15,6 @@
         <tbody>
         {% for team in teams %}
             <tr>
-                <td><a href="{{ path('team_show', { 'id': team.id }) }}">{{ team.id }}</a></td>
                 <td>{{ team.nom }}</td>
                 <td>{{ team.nBjoueur }}</td>
                 <td>{% if team.temps %}{{ team.temps|date('H:i:s') }}{% endif %}</td>

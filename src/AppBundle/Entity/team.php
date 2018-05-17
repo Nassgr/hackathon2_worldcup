@@ -38,7 +38,7 @@ class team
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="temps", type="time")
+     * @ORM\Column(name="temps", type="time", nullable=true)
      */
     private $temps;
 
