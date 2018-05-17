@@ -14,7 +14,7 @@ class team
 {
 
     /**
-    * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="team")
+    * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="teamid")
     * @ORM\JoinColumn(nullable=false)
     */
     private $players;
