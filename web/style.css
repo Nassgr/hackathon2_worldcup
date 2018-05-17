@@ -1,4 +1,27 @@
-*
-{
+* {
     box-sizing: border-box;
+}
+
+.bg{
+    background-color: black;
+}
+a.nav-link.navlink {
+    color: green;
+}
+body{
+    background-color: goldenrod;
+}
+
+img.home {
+    width: 35vw;
+    height: 50vw;
+}
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+img.flag {
+    width: 10vw;
+    height: 5vw;
 }
