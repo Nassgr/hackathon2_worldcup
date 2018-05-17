@@ -1,53 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>Players list</h1>
+    <div class="container-fluid">
+        <div class="player-title text-center">
+            <h1>The Players</h1>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Age</th>
-                <th>Role</th>
-                <th>Picture</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for player in players %}
 
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ player.picture }}" alt="Card image cap">
+            <div class="player-card text-center" style="max-width: 20rem;">
+                <h2 class="card-title text-center">{{ player.name }} {{ player.surname }}</h2>
+                <img class="card-img-top" src="{{ player.picture }}"  width="100px" height="250px" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{ player.name }} {{ player.surname }}</h5>
-                    <p class="card-text">AGE : {{ player.age }} ans</p>
-                    <a href="#" class="btn btn-primary">{{ player.role }}</a>
+
+                    <p class="card-text text-center">{{ player.age }} ans</p>
+                    <a href="#" class="btn btn-success">{{ player.role }}</a>
                 </div>
             </div>
-            <tr>
-                <td><a href="{{ path('player_show', { 'id': player.id }) }}">{{ player.id }}</a></td>
-                <td>{{ player.name }}</td>
-                <td>{{ player.surname }}</td>
-                <td>{{ player.age }}</td>
-                <td>{{ player.role }}</td>
-                <td>{{ player.picture }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('player_show', { 'id': player.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('player_edit', { 'id': player.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
         {% endfor %}
-        </tbody>
-    </table>
-
+        </div>
     <ul>
         <li>
             <a href="{{ path('player_new') }}">Create a new player</a>
