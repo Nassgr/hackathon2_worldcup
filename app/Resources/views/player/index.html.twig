@@ -17,15 +17,6 @@
         </thead>
         <tbody>
         {% for player in players %}
-
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ player.picture }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ player.name }} {{ player.surname }}</h5>
-                    <p class="card-text">AGE : {{ player.age }} ans</p>
-                    <a href="#" class="btn btn-primary">{{ player.role }}</a>
-                </div>
-            </div>
             <tr>
                 <td><a href="{{ path('player_show', { 'id': player.id }) }}">{{ player.id }}</a></td>
                 <td>{{ player.name }}</td>
