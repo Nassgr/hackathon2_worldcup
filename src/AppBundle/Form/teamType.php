@@ -5,23 +5,27 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Doctrine\ORM\EntityRepository;
 
-class PlayerType extends AbstractType
+class teamType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('surname')->add('age')->add('role')->add('picture');
-      
+        $builder
+            ->add('nom')
+            ->add('nBjoueur', IntegerType::class, array('label' => 'NB joueur'));
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Player'
+            'data_class' => 'AppBundle\Entity\team'
         ));
     }
 
@@ -30,7 +34,7 @@ class PlayerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_player';
+        return 'appbundle_team';
     }
 
 

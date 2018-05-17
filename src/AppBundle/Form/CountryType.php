@@ -6,22 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PlayerType extends AbstractType
+class CountryType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('surname')->add('age')->add('role')->add('picture');
-      
+        $builder->add('name')->add('picture');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Player'
+            'data_class' => 'AppBundle\Entity\Country'
         ));
     }
 
@@ -30,7 +29,7 @@ class PlayerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_player';
+        return 'appbundle_country';
     }
 
 
