@@ -32,6 +32,23 @@ class CountryController extends Controller
     }
 
     /**
+     * Lists all country entities mode admin.
+     *
+     * @Route("/admin", name="country_index_admin")
+     * @Method("GET")
+     */
+    public function indexAdminAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $countries = $em->getRepository('AppBundle:Country')->findAll();
+
+        return $this->render('country/indexAdmin.html.twig', array(
+            'countries' => $countries,
+        ));
+    }
+
+    /**
      * Creates a new country entity.
      *
      * @Route("/new", name="country_new")

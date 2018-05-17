@@ -16,3 +16,8 @@ img.home {
     margin: 0;
     padding: 0;
 }
+
+img.flag {
+    width: 10vw;
+    height: 5vw;
+}
