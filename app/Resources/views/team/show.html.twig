@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Team</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ team.nom }}</td>
+            </tr>
+            <tr>
+                <th>Nbjoueur</th>
+                <td>{{ team.nBjoueur }}</td>
+            </tr>
+            <tr>
+                <th>Temps</th>
+                <td>{% if team.temps %}{{ team.temps|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('team_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('team_edit', { 'id': team.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

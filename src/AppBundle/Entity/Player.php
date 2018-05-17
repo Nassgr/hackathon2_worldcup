@@ -187,3 +187,4 @@ class Player
         return $this->role;
     }
 }
+
