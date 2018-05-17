@@ -12,6 +12,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class team
 {
+
+    /**
+    * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="teamid")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $players;
+
+
+
     /**
      * @var int
      *
@@ -38,7 +47,7 @@ class team
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="temps", type="time")
+     * @ORM\Column(name="temps", type="time", nullable=true)
      */
     private $temps;
 
@@ -123,5 +132,46 @@ class team
     public function getTemps()
     {
         return $this->temps;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add player
+     *
+     * @param \AppBundle\Entity\Player $player
+     *
+     * @return team
+     */
+    public function addPlayer(\AppBundle\Entity\Player $player)
+    {
+        $this->players[] = $player;
+
+        return $this;
+    }
+
+    /**
+     * Remove player
+     *
+     * @param \AppBundle\Entity\Player $player
+     */
+    public function removePlayer(\AppBundle\Entity\Player $player)
+    {
+        $this->players->removeElement($player);
+    }
+
+    /**
+     * Get players
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlayers()
+    {
+        return $this->players;
     }
 }
