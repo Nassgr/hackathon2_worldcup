@@ -1,29 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center">Pays en compétition</h1>
-    <div class="row pt-3">
+    <h1>Countries list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for country in countries %}
-            <div class="col-md-3 col-sm-6 pl-4 pb-5 mx-auto">
-                <figure class="card card-body mx-auto">
-                    <a class="linkcard" href="{{ path('country_show', { 'id': country.id }) }}">
-                        <h2 class="card-title text-center">{{ country.name | title }}</h2>
-                    </a>
-                    <div class="stylecard">
-                        <a class="linkcard" href="{{ path('country_show', { 'id': country.id }) }}">
-                            <img class="img-fluid cardPicture mx-auto mr-5" alt="countryPicture"
-                                 src="{{ country.picture }}">
-                        </a>
-                    </div>
-                    <div class="d-flex flex-row mx-auto">
-                        <div class="p-2">
-                            <a href="#" class="linkcard">
-                                <button class="btn btn-success">Parier!</button>
-                            </a>
-                        </div>
-                    </div>
-                </figure>
-            </div>
+            <tr>
+                <td><a href="{{ path('country_show', { 'id': country.id }) }}">{{ country.id }}</a></td>
+                <td>{{ country.name }}</td>
+                <td>{{ country.picture }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('country_show', { 'id': country.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('country_edit', { 'id': country.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
         {% endfor %}
-    </div>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('country_new') }}">Create a new country</a>
+        </li>
+    </ul>
 {% endblock %}

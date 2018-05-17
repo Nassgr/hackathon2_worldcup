@@ -18,4 +18,34 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/courses", name="courses")
+     */
+    public function coursesAction()
+    {
+        return $this->render('default/courses.html.twig');
+    }
+
+    /**
+     * @Route("/courses/1", name="course")
+     */
+    public function courseAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $teams = $em->getRepository('AppBundle:team')->findAll();
+        foreach ($teams as $team) {
+            $time = date('m:s', rand(0, 3600));
+            $team->setTemps($time);
+            $em->createQueryBuilder()->update('AppBundle:team', 't')->set('t.temps', $em->createQueryBuilder()->expr()->literal($time))
+                ->where('t.id = ?1')
+                ->setParameter(1, $team->getId())
+                ->getQuery()->execute();
+        }
+        $teams = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC']);
+        $teamsPodium = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC'], 3, 0);
+        $winner = $teamsPodium[0];
+
+        return $this->render('default/course.html.twig', ['teams' => $teams, 'teamsPodium' => $teamsPodium, 'winner' => $winner]);
+    }
 }
