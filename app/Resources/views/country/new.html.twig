@@ -1,32 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center">Country creation</h1>
-    {% form_theme form 'bootstrap_4_layout.html.twig' %}
-    <div class="row">
-        <div class="col-2 mx-auto">
-            <div class="d-flex ml-4">
-                {{ form_start(form) }}
-                <div class="p-2">
-                    {{ form_label(form.name) }}:
-                    {{ form_widget(form.name) }}
-                </div>
-                <div class="p-2">
-                    Lien de l'image:
-                    {{ form_widget(form.picture) }}
-                </div>
-                <div class="p-2">
-                    <input type="submit" value="Create" />
-                </div>
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
-    <ul class="text-center">
+    <h1>Country creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
         <li>
             <a href="{{ path('country_index') }}">Back to the list</a>
         </li>
     </ul>
+
     <div class="row">
         <div class="col-4 mx-auto">
             <figure>
@@ -34,4 +21,5 @@
             </figure>
         </div>
     </div>
+
 {% endblock %}
