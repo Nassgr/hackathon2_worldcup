@@ -42,7 +42,7 @@ class DefaultController extends Controller
                 ->setParameter(1, $team->getId())
                 ->getQuery()->execute();
         }
-        $teams = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC']);
+        $teams = $em->getRepository('AppBundle:team')->findBy([], ['countryid' => 'ASC']);
         $teamsPodium = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC'], 3, 0);
         $winner = $teamsPodium[0];
 
