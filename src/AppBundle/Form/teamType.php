@@ -5,9 +5,6 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Doctrine\ORM\EntityRepository;
 
 class teamType extends AbstractType
 {
@@ -16,9 +13,7 @@ class teamType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('nom')
-            ->add('nBjoueur', IntegerType::class, array('label' => 'NB joueur'));
+        $builder->add('nom')->add('nBjoueur')->add('countryid');
     }/**
      * {@inheritdoc}
      */

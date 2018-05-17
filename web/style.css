@@ -115,6 +115,7 @@ form {
     background-color: goldenrod;
     border-radius: 10px;
     border-color: green;
+    color: black;
 }
 
 img.adminForm {

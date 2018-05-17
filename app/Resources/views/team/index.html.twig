@@ -25,6 +25,9 @@
                         <li>
                             <a href="{{ path('team_show', { 'id': team.id }) }}">show</a>
                         </li>
+                        <li>
+                            <a href="{{ path('team_edit', { 'id': team.id }) }}">edit</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -32,5 +35,9 @@
         </tbody>
     </table>
 
-    
+    <ul>
+        <li>
+            <a href="{{ path('team_new') }}">Create a new team</a>
+        </li>
+    </ul>
 {% endblock %}

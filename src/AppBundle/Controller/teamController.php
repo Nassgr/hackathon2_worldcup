@@ -1,9 +1,12 @@
 <?php
+
 namespace AppBundle\Controller;
+
 use AppBundle\Entity\team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+
 /**
  * Team controller.
  *
@@ -20,11 +23,14 @@ class teamController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+
         $teams = $em->getRepository('AppBundle:team')->findAll();
+
         return $this->render('team/index.html.twig', array(
             'teams' => $teams,
         ));
     }
+
     /**
      * Creates a new team entity.
      *
@@ -36,17 +42,21 @@ class teamController extends Controller
         $team = new Team();
         $form = $this->createForm('AppBundle\Form\teamType', $team);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($team);
             $em->flush();
+
             return $this->redirectToRoute('team_show', array('id' => $team->getId()));
         }
+
         return $this->render('team/new.html.twig', array(
             'team' => $team,
             'form' => $form->createView(),
         ));
     }
+
     /**
      * Finds and displays a team entity.
      *
@@ -56,11 +66,13 @@ class teamController extends Controller
     public function showAction(team $team)
     {
         $deleteForm = $this->createDeleteForm($team);
+
         return $this->render('team/show.html.twig', array(
             'team' => $team,
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Displays a form to edit an existing team entity.
      *
@@ -72,16 +84,20 @@ class teamController extends Controller
         $deleteForm = $this->createDeleteForm($team);
         $editForm = $this->createForm('AppBundle\Form\teamType', $team);
         $editForm->handleRequest($request);
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
             return $this->redirectToRoute('team_edit', array('id' => $team->getId()));
         }
+
         return $this->render('team/edit.html.twig', array(
             'team' => $team,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a team entity.
      *
@@ -92,13 +108,16 @@ class teamController extends Controller
     {
         $form = $this->createDeleteForm($team);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($team);
             $em->flush();
         }
+
         return $this->redirectToRoute('team_index');
     }
+
     /**
      * Creates a form to delete a team entity.
      *
@@ -112,6 +131,6 @@ class teamController extends Controller
             ->setAction($this->generateUrl('team_delete', array('id' => $team->getId())))
             ->setMethod('DELETE')
             ->getForm()
-            ;
+        ;
     }
 }
