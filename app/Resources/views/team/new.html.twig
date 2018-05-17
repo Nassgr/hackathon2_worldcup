@@ -1,16 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Team creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
+    <h1 class="text-center">Team creation</h1>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    <div class="row">
+        <div class="col-2 mx-auto">
+            <div class="d-flex ml-4">
+                {{ form_start(form) }}
+                <div class="p-2">
+                    {{ form_label(form.nom) }}:
+                    {{ form_widget(form.nom) }}
+                </div>
+                <div class="p-2">
+                    Nombre de joueur:
+                    {{ form_widget(form.nBjoueur) }}
+                </div>
+                <div class="p-2">
+                    Pays:
+                    {{ form_widget(form.countryid) }}
+                </div>
+                <div class="p-2">
+                    <input type="submit" value="Create" />
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <ul class="text-center">
         <li>
             <a href="{{ path('team_index') }}">Back to the list</a>
         </li>
     </ul>
+    <div class="row">
+        <div class="col-4 mx-auto">
+            <figure>
+                <img class="adminForm" src="https://media.giphy.com/media/10TnelxprE7AjK/giphy.gif">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </div>
 {% endblock %}
