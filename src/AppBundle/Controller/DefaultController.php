@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Country;
 
 class DefaultController extends Controller
 {
@@ -29,6 +31,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/courses/1", name="course")
+     * @Method({"GET", "POST"})
      */
     public function courseAction()
     {
@@ -45,6 +48,12 @@ class DefaultController extends Controller
         $teams = $em->getRepository('AppBundle:team')->findBy([], ['countryid' => 'ASC']);
         $teamsPodium = $em->getRepository('AppBundle:team')->findBy([], ['temps' => 'ASC'], 3, 0);
         $winner = $teamsPodium[0];
+
+        if (!empty($_POST['pariCountry'])) {
+            $pariCountry = $em->getRepository('AppBundle:Country')->findBy(['name' => $_POST['pariCountry']]);
+            $pariCountry = $pariCountry[0];
+            return $this->render('default/course.html.twig', ['teams' => $teams, 'teamsPodium' => $teamsPodium, 'winner' => $winner, 'pariCountry' => $pariCountry]);
+        }
 
         return $this->render('default/course.html.twig', ['teams' => $teams, 'teamsPodium' => $teamsPodium, 'winner' => $winner]);
     }

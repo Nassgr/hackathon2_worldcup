@@ -2,6 +2,11 @@
 
 {% block body %}
     <h1 class="text-center">Tableau des scores</h1>
+    {% if pariCountry is defined and pariCountry.name == winner.countryid.name %}
+        <h2 class="text-center">Gagné</h2>
+    {% elseif pariCountry is defined %}
+        <h2 class="text-center">Perdu</h2>
+    {% endif %}
     <div class="row">
         <div class="col-4 text-center">
             <h2 class="p-2">Qualification</h2>
