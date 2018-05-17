@@ -1,41 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Countries list</h1>
+    <div class="row pt-2">
+        <div class="col-12">
+            <h1>Countries list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for country in countries %}
-            <tr>
-                <td><a href="{{ path('country_show', { 'id': country.id }) }}">{{ country.id }}</a></td>
-                <td>{{ country.name }}</td>
-                <td>{{ country.picture }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('country_show', { 'id': country.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('country_edit', { 'id': country.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('country_new') }}">Create a new country</a>
-        </li>
-    </ul>
+            <table class="table-bordered table-dark table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Flag</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for country in countries %}
+                    <tr>
+                        <td><a href="{{ path('country_show', { 'id': country.id }) }}">{{ country.name }}</a></td>
+                        <td><img class="flag" src="{{ country.picture }}"></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}
