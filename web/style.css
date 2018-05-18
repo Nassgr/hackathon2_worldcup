@@ -22,7 +22,6 @@ a.nav-link:hover:after {
 }
 .body{
     min-height: 100vh;
-    background-repeat: no-repeat;
     background-image: url("https://www.ethz.ch/en/news-and-events/eth-news/news/2014/02/citius-bob-in-sotschi-am-start/_jcr_content/news_content/textimage_1/image.imageformat.lightbox.1672232884.jpg");
     object-fit: cover;
     color: goldenrod;
