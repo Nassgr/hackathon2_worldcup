@@ -129,8 +129,9 @@ img.adminForm {
 .score {
     width: 30vw;
 }
-.table-striped{
-    margin:150px;
+.table{
+    margin-top:50px;
+    margin-right: 200px;
 }
 
 .thead-color{

@@ -11,16 +11,14 @@
              <th>Pays</th>
              <th>Nom</th>
              <th>Joueurs</th>
-             <th>Temps</th>
          </tr>
          </thead>
          <tbody>
          {% for team in teams %}
              <tr>
                  <td><img src="{{ team.countryid.picture }}" height="80" width="120"></td>
-                 <td><a href="{{ path('team_show', { 'id': team.id }) }}">{{ team.nom }}</a></td>
-                 <td>{{ team.nBjoueur }}</td>
-                 <td>{% if team.temps %}{{ team.temps|date('H:i:s') }}{% endif %}</td>
+                 <td>{{ team.nom }}</td>
+                 <td><a href="{{ path('team_show', { 'id': team.id }) }}">Les {{ team.nBjoueur }} joueurs</a></td>
              </tr>
          {% endfor %}
          </tbody>
