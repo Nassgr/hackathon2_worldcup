@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Country
 {
-
-    /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\team", mappedBy="countryid")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $teams;
-
-
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\team", mappedBy="countryid")
      * @ORM\JoinColumn(nullable=true)
