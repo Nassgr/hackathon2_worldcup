@@ -1,19 +1,22 @@
+@font-face{
+    font-family: ;
+}
 
 * {
     box-sizing: border-box;
 }
 
 .bg{
-    background-color: black;
+    background-color: white;
 }
 a.nav-link.navlink {
-    color: goldenrod;
+    color: #007E87;
     font-size: 20px;
 }
 a.navlink:after {
     display: block;
     content: '';
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid #A7D5F2;
     margin-bottom: 10px;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
@@ -23,8 +26,9 @@ a.nav-link:hover:after {
 }
 body{
     background-image: url("https://www.ethz.ch/en/news-and-events/eth-news/news/2014/02/citius-bob-in-sotschi-am-start/_jcr_content/news_content/textimage_1/image.imageformat.lightbox.1672232884.jpg");
+    background-size: cover;
     object-fit: cover;
-    color: goldenrod;
+    color: #A7D5F2;
 }
 
 img.home {
