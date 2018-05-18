@@ -46,11 +46,11 @@ figure.snip1477 *:after {
 }
 figure.snip1477 img {
 
-    width: 100%;
-    height:100%;
+    width: 150px;
+    height:75px;
     backface-visibility: hidden;
     vertical-align: top;
-    opacity: 0.9;
+    opacity: 1;
 }
 figure.snip1477 .title {
     position: absolute;
@@ -134,7 +134,7 @@ figure.snip1477 a {
     left: 0;
     right: 0;
 }
-figure.snip1477:hover img,
+
 figure.snip1477.hover img {
     zoom: 1;
     filter: alpha(opacity=35);
