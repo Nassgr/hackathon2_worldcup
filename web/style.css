@@ -52,6 +52,7 @@ img.flag {
 .team-title {
     margin-top: 50px;
     color: goldenrod;
+    margin-bottom: 50px;
 }
 .player-title {
     margin-top: 50px;
@@ -151,4 +152,22 @@ td {
 .list-group-item-link {
     text-decoration: none;
     color: green;
+}
+
+.title-style-black{
+    margin: 30px;
+    color : black;
+    font-weight: bold;
+    font-size: 60px;
+}
+.title-style {
+    margin:30px;
+    font-weight: bold;
+    font-size: 50px;
+}
+.title-style-green{
+    margin: 30px;
+    color : green;
+    font-weight: bold;
+    font-size: 35px;
 }
