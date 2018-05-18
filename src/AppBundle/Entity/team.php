@@ -56,6 +56,13 @@ class team
      */
     private $temps;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="temps2", type="time", nullable=true)
+     */
+    private $temps2;
+
 
     /**
      * Get id
@@ -213,5 +220,29 @@ class team
     public function getCountryid()
     {
         return $this->countryid;
+    }
+
+    /**
+     * Set temps2
+     *
+     * @param \DateTime $temps2
+     *
+     * @return team
+     */
+    public function setTemps2($temps2)
+    {
+        $this->temps2 = $temps2;
+
+        return $this;
+    }
+
+    /**
+     * Get temps2
+     *
+     * @return \DateTime
+     */
+    public function getTemps2()
+    {
+        return $this->temps2;
     }
 }

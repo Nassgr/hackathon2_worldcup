@@ -3,9 +3,17 @@
 {% block body %}
     <h1 class="text-center">Tableau des scores</h1>
     {% if pariCountry is defined and pariCountry.name == winner.countryid.name %}
-        <h2 class="text-center">Gagné</h2>
+        <h2 class="text-center">Gagné!</h2>
+        <h3 class="text-center">Toi t'as embrassé mon oeuf!</h3>
+        <div class="d-flex justify-content-center">
+            <img class="adminForm" src="https://media.giphy.com/media/WNKn99bAmwD5e/giphy.gif">
+        </div>
     {% elseif pariCountry is defined %}
-        <h2 class="text-center">Perdu</h2>
+        <h2 class="text-center">Perdu!</h2>
+        <h3 class="text-center">T'es mort man!</h3>
+        <div class="d-flex justify-content-center">
+            <img class="adminForm" src="https://media.giphy.com/media/kPVBkLYg5cqWs/giphy.gif">
+        </div>
     {% endif %}
     <div class="row">
         <div class="col-4 text-center">
@@ -52,7 +60,7 @@
             <tr>
                 <td align="center">{{ team.nom }}</td>
                 <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
-                <td align="center">{{ team.temps }}</td>
+                <td align="center">{{ team.temps2}}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -70,7 +78,7 @@
             <tr>
                 <td align="center">{{ winner.nom }}</td>
                 <td align="center"><img class="flag" src="{{ winner.countryid.picture }}"></td>
-                <td align="center">{{ winner.temps }}</td>
+                <td align="center"> {{ winner.temps2 }}</td>
             </tr>
         </tbody>
     </table>

@@ -13,10 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Player
 {
 
-
-
-
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\team", inversedBy="players")
      * @ORM\JoinColumn(nullable=false)
@@ -209,6 +205,8 @@ class Player
 
 
     }
+
+
 
     /**
      * Set teamid
