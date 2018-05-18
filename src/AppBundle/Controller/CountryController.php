@@ -32,7 +32,7 @@ class CountryController extends Controller
     }
 
     /**
-     * Lists all country entities mode admin.
+     * Lists all country entities.
      *
      * @Route("/admin", name="country_index_admin")
      * @Method("GET")
@@ -51,7 +51,7 @@ class CountryController extends Controller
     /**
      * Creates a new country entity.
      *
-     * @Route("/new", name="country_new")
+     * @Route("/admin/new", name="country_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -91,9 +91,25 @@ class CountryController extends Controller
     }
 
     /**
+     * Finds and displays a country entity.
+     *
+     * @Route("/{id}/admin", name="country_show_admin")
+     * @Method("GET")
+     */
+    public function showAdminAction(Country $country)
+    {
+        $deleteForm = $this->createDeleteForm($country);
+
+        return $this->render('country/showAdmin.html.twig', array(
+            'country' => $country,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
      * Displays a form to edit an existing country entity.
      *
-     * @Route("/{id}/edit", name="country_edit")
+     * @Route("/{id}/admin/edit", name="country_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Country $country)
@@ -118,7 +134,7 @@ class CountryController extends Controller
     /**
      * Deletes a country entity.
      *
-     * @Route("/{id}", name="country_delete")
+     * @Route("/{id}/admin/delete", name="country_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Country $country)
