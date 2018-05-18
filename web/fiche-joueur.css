@@ -5,9 +5,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #43423E;
-}
 
 a {
     text-decoration: none;
@@ -47,7 +44,8 @@ a:hover {
 
 .cover {
     position: absolute;
-    width: 250px;
+    width: 200px;
+
     top: 160px;
     left: 40px;
     z-index: 2;
