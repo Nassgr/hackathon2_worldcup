@@ -41,7 +41,7 @@
             <tr>
                 <td align="center">{{ team.nom }}</td>
                 <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
-                <td align="center">{{ team.temps }}</td>
+                <td align="center">{{ team.temps | date('h:i') }}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -60,7 +60,7 @@
             <tr>
                 <td align="center">{{ team.nom }}</td>
                 <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
-                <td align="center">{{ team.temps2}}</td>
+                <td align="center">{{ team.temps2 | date('h:i') }}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -78,7 +78,7 @@
             <tr>
                 <td align="center">{{ winner.nom }}</td>
                 <td align="center"><img class="flag" src="{{ winner.countryid.picture }}"></td>
-                <td align="center"> {{ winner.temps2 }}</td>
+                <td align="center"> {{ winner.temps2 | date('h:i') }}</td>
             </tr>
         </tbody>
     </table>
