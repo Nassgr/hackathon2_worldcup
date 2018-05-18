@@ -64,6 +64,12 @@ class Player
      */
     private $picture;
 
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="bio", type="text", nullable=true)
+     */
+    private $bio;
 
     /**
      * Get id
@@ -230,5 +236,29 @@ class Player
     public function getTeamid()
     {
         return $this->teamid;
+    }
+
+    /**
+     * Set bio
+     *
+     * @param string $bio
+     *
+     * @return Player
+     */
+    public function setBio($bio)
+    {
+        $this->bio = $bio;
+
+        return $this;
+    }
+
+    /**
+     * Get bio
+     *
+     * @return string
+     */
+    public function getBio()
+    {
+        return $this->bio;
     }
 }
