@@ -13,7 +13,7 @@ class CountryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('picture')->add('teams');
+        $builder->add('name')->add('picture');
     }/**
      * {@inheritdoc}
      */

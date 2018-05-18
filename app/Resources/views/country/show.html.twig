@@ -1,36 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Country</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ country.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ country.name }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ country.picture }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1 class="text-center">{{ country.name }}</h1>
+    <div class="row pt-3">
+        <div class="col-md-3 col-sm-6 pl-4 pb-5 mx-auto">
+            <figure class="card card-body mx-auto">
+                <a class="linkcard" href="{{ path('country_show', { 'id': country.id }) }}">
+                    <h2 class="card-title text-center">{{ country.name | title }}</h2>
+                </a>
+                {% if country.teams is not null %}
+                    <h3>Nom de l'équipe: {{ country.teams.nom }}</h3>
+                {% endif %}
+                <div class="stylecard">
+                    <a class="linkcard" href="{{ path('country_show', { 'id': country.id }) }}">
+                        <img class="img-fluid cardPicture mx-auto mr-5" alt="countryPicture"
+                             src="{{ country.picture }}">
+                    </a>
+                </div>
+                <div class="d-flex flex-row mx-auto">
+                    <div class="p-2">
+                        <form method="post" action="/courses/1">
+                            <input type="hidden" name="pariCountry" value="{{ country.name }}">
+                            <button class="btn btn-success linkcard" type="submit">Parier!</button>
+                        </form>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </div>
 
     <ul>
         <li>
             <a href="{{ path('country_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('country_edit', { 'id': country.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
         </li>
     </ul>
 {% endblock %}
