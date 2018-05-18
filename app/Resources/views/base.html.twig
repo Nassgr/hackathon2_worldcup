@@ -4,12 +4,11 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
         <title>{% block title %}Title{% endblock %}</title>
-        {% block stylesheets %}  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="{{ asset('style.css') }}">{% endblock %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('style.css') }}">
+        <link rel="stylesheet" href="{{ asset('rotating-card.css') }}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
@@ -40,7 +39,7 @@
             </div>
         </nav>
     </header>
-    <div class="pt-5">
+    <div class="pt-4 body">
         {% block body %}{% endblock %}
     </div>
         {% block javascripts %}{% endblock %}

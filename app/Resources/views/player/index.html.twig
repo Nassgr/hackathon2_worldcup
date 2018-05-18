@@ -1,38 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('rotating-card.css') }}">
+
+
 {% endblock %}
+
 {% block body %}
+    <section class="playerList">
     <div class="container">
         <div class="row">
             {% for player in players %}
-            <div class="col-sm-4">
-
-
-                <figure class="snip1477" >
-                    <img class= "img-fluid" src="{{ player.picture }}" />
-                    <div class="title">
-                        <div>
-                            <h2>{{ player.name }}</h2>
-                            <h4>{{ player.surname }}</h4>
+                <div class="col-sm-4">
+                    <figure class="snip1477">
+                        <img class="img-fluid" src="{{ player.picture }}"/>
+                        <div class="title">
+                            <div>
+                                <h2>{{ player.name }}</h2>
+                                <h4>{{ player.surname }}</h4>
+                            </div>
                         </div>
-                    </div>
-                    <figcaption>
-
-                        <h3>Age : {{ player.age }} ans</h3>
-                        <h3>Role : {{ player.role }}</h3>
-                    </figcaption>
-                    <a href="#"></a>
-                </figure>
-            </div>
-
-
-
+                        <figcaption>
+                            <h3>Age : {{ player.age }} ans</h3>
+                            <h3>Role : {{ player.role }}</h3>
+                        </figcaption>
+                        <a href="#"></a>
+                    </figure>
+                </div>
             {% endfor %}
         </div>
-
     </div>
+    </section>
 {% endblock %}

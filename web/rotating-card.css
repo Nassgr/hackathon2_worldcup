@@ -21,8 +21,7 @@ a.navlink:after {
 a.nav-link:hover:after {
     transform: scaleX(0.4);
 }
-body{
-
+.playerList{
     background:url("fresh_snow.png");
 
 }
