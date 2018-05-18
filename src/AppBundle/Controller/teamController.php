@@ -34,7 +34,7 @@ class teamController extends Controller
     /**
      * Creates a new team entity.
      *
-     * @Route("/new", name="team_new")
+     * @Route("/admin/new", name="team_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -47,6 +47,10 @@ class teamController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($team);
             $em->flush();
+            $em->createQueryBuilder()->update('AppBundle:Country', 'c')->set('c.teams', $em->createQueryBuilder()->expr()->literal($team->getId()))
+                ->where('c.id = ?1')
+                ->setParameter(1, $team->getCountryid())
+                ->getQuery()->execute();
 
             return $this->redirectToRoute('team_show', array('id' => $team->getId()));
         }
@@ -76,7 +80,7 @@ class teamController extends Controller
     /**
      * Displays a form to edit an existing team entity.
      *
-     * @Route("/{id}/edit", name="team_edit")
+     * @Route("/{id}/admin/edit", name="team_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, team $team)
@@ -101,7 +105,7 @@ class teamController extends Controller
     /**
      * Deletes a team entity.
      *
-     * @Route("/{id}", name="team_delete")
+     * @Route("/{id}/admin/delete", name="team_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, team $team)
