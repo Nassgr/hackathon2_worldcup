@@ -21,6 +21,12 @@ class Country
 
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\team", mappedBy="countryid")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $teams;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -104,7 +110,6 @@ class Country
 
     /**
      * Set teams
-     *
      * @param \AppBundle\Entity\team $teams
      *
      * @return Country
@@ -118,11 +123,16 @@ class Country
 
     /**
      * Get teams
-     *
      * @return \AppBundle\Entity\team
      */
     public function getTeams()
     {
         return $this->teams;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 }

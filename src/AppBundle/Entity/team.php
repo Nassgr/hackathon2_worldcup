@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class team
 {
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $countryid;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="teams")

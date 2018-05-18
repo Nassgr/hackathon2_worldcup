@@ -34,7 +34,7 @@ class PlayerController extends Controller
     /**
      * Creates a new player entity.
      *
-     * @Route("/new", name="player_new")
+     * @Route("/admin/new", name="player_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -76,7 +76,7 @@ class PlayerController extends Controller
     /**
      * Displays a form to edit an existing player entity.
      *
-     * @Route("/{id}/edit", name="player_edit")
+     * @Route("/{id}/admin/edit", name="player_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Player $player)
@@ -101,7 +101,7 @@ class PlayerController extends Controller
     /**
      * Deletes a player entity.
      *
-     * @Route("/{id}", name="player_delete")
+     * @Route("/{id}/admin/delete", name="player_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Player $player)
