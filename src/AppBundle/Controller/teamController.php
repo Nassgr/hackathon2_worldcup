@@ -67,11 +67,20 @@ class teamController extends Controller
      * @Route("/{id}", name="team_show")
      * @Method("GET")
      */
-    public function showAction(team $team)
+    public function showAction(Request $request, team $team)
     {
+
+        $id =   $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+
+        $players = $em->getRepository('AppBundle:player')->findBy([
+            'teamid' => $id
+        ]);
+
         $deleteForm = $this->createDeleteForm($team);
 
         return $this->render('team/show.html.twig', array(
+            'players' => $players,
             'team' => $team,
             'delete_form' => $deleteForm->createView(),
         ));
