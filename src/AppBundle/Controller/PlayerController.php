@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Player;
+use AppBundle\Entity\team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -66,9 +67,13 @@ class PlayerController extends Controller
     public function showAction(Player $player)
     {
         $deleteForm = $this->createDeleteForm($player);
+        $team = new team();
+        $players = new Player();
 
         return $this->render('player/show.html.twig', array(
             'player' => $player,
+            'team' => $team,
+            'players' => $players,
             'delete_form' => $deleteForm->createView(),
         ));
     }
