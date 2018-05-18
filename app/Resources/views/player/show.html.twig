@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('fiche-joueur.css') }}">
+<style>
+    .hero:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background: red;
+        background: url("{{ player.teamid.countryid.Picture }}") center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        z-index: -1;
+        transform: skewY(-2.2deg);
+        transform-origin: 0 0;
+        -webkit-backface-visibility: hidden;
+    }
+
+
+
+
+body{
+
+    background: #222222;
+
+
+}
+
+</style>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+{% block body %}
+
+
+    <div class="movie-card">
+
+        <div class="container">
+
+            <a href="#"><img src="{{ player.picture }}" alt="cover" class="cover" /></a>
+
+            <div class="hero">
+
+                <div class="details">
+
+                    <div class="title1">{{ player.name }}  {{ player.surname }}</div><br>
+                    <div class="title1">{{ player.teamid.nom}}</div>
+
+
+
+
+                </div> <!-- end details -->
+
+            </div> <!-- end hero -->
+
+            <div class="description">
+
+                <div class="column1">
+
+                <div class="title2">Role : {{ player.role }}</div>
+
+                <div class="title2">Age : {{ player.age }}</div>
+            </div>
+
+                <div class="column2">
+
+                    <p>{{ player.bio }}</p>
+
+
+                    </div> <!-- end avatars -->
+
+
+
+                </div> <!-- end column2 -->
+            </div> <!-- end description -->
+
+
+        </div> <!-- end container -->
+    </div> <!-- end movie-card -->
+
+
+
+
+
+
+{% endblock %}

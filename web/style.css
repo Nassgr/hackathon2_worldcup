@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+.bg{
+    background-color: black;
+}
+a.nav-link.navlink {
+    color: goldenrod;
+    font-size: 20px;
+}
+a.navlink:after {
+    display: block;
+    content: '';
+    border-bottom: 2px solid green;
+    margin-bottom: 10px;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+a.nav-link:hover:after {
+    transform: scaleX(0.4);
+}
+.body{
+    min-height: 100vh;
+    background-image: url("https://www.ethz.ch/en/news-and-events/eth-news/news/2014/02/citius-bob-in-sotschi-am-start/_jcr_content/news_content/textimage_1/image.imageformat.lightbox.1672232884.jpg");
+    object-fit: cover;
+    color: goldenrod;
+}
+
+img.home {
+    width: 35vw;
+    height: 50vw;
+}
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+img.flag {
+    width: 10vw;
+    height: 5vw;
+}
+
+.player-card{
+    display: inline-block;
+    background-color: goldenrod;
+    box-shadow: 1px 1px 1px 1px gray;
+    padding: 10px;
+    margin: 60px;
+    font-weight: bold;
+}
+.team-title {
+    margin-top: 50px;
+    color: goldenrod;
+}
+.player-title {
+    margin-top: 50px;
+    color: goldenrod;
+}
+.card p {
+    font-size: calc(15px + 10 * (100vw - 400px) / 1200);
+}
+
+.card h2 {
+    font-size: calc(17px + 11 * (100vw - 400px) / 1200);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stylecard{
+    transition: transform .5s;
+    margin: 0 auto;
+
+}
+
+.stylecard:hover{
+    transform: scale(1.05);
+}
+
+a.linkcard:after{
+    text-decoration: none;
+    display: none;
+
+}
+
+a.linkcard{
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: goldenrod;
+    color: antiquewhite;
+}
+
+img.cardPicture {
+    width: 20vw;
+    max-height: 10vw;
+    object-fit: cover;
+    min-height: 10vw;
+
+}
+
+.btn-success {
+    background-color: green;
+    border-color: green;
+}
+
+.btn-success:hover {
+    background-color: gold;
+    border-color: gold;
+}
+
+form {
+    background-color: goldenrod;
+    border-radius: 10px;
+    border-color: green;
+    color: black;
+}
+
+img.adminForm {
+    width: 30vw;
+    height: 20vw;
+}
+
+.score {
+    width: 30vw;
+}
+.table{
+    margin-top:50px;
+    margin-right: 200px;
+}
+
+.thead-color{
+    background-color: goldenrod;
+}
+
+th, td {
+    border:2px solid goldenrod;
+}
+td {
+    text-align:center;
+}
+
+.list-group-item {
+    background-color: goldenrod;
+}
+
+.list-group-item-link {
+    text-decoration: none;
+    color: green;
+}

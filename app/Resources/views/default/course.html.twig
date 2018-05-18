@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">Tableau des scores</h1>
+    {% if pariCountry is defined and pariCountry.name == winner.countryid.name %}
+        <h2 class="text-center">Gagné!</h2>
+        <h3 class="text-center">Toi t'as embrassé mon oeuf!</h3>
+        <div class="d-flex justify-content-center">
+            <img class="adminForm" src="https://media.giphy.com/media/WNKn99bAmwD5e/giphy.gif">
+        </div>
+    {% elseif pariCountry is defined %}
+        <h2 class="text-center">Perdu!</h2>
+        <h3 class="text-center">T'es mort man!</h3>
+        <div class="d-flex justify-content-center">
+            <img class="adminForm" src="https://media.giphy.com/media/kPVBkLYg5cqWs/giphy.gif">
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-4 text-center">
+            <h2 class="p-2">Qualification</h2>
+        </div>
+        <div class="col-4 text-center">
+            <h2 class="p-2">Podium</h2>
+        </div>
+        <div class="col-4 text-center">
+            <h2 class="p-2">Vainqueur</h2>
+        </div>
+    </div>
+
+    <div class="d-inline-flex">
+    <table class="table-bordered table-dark table-hover score ml-5">
+        <thead>
+            <tr>
+                <th>Nom de l'équipe</th>
+                <th>Drapeau</th>
+                <th>Temps</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+            <tr>
+                <td align="center">{{ team.nom }}</td>
+                <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
+                <td align="center">{{ team.temps }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table-bordered table-dark table-hover score ml-5">
+        <thead>
+        <tr>
+            <th>Nom de l'équipe</th>
+            <th>Drapeau</th>
+            <th>Temps</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in teamsPodium %}
+            <tr>
+                <td align="center">{{ team.nom }}</td>
+                <td align="center"><img class="flag" src="{{ team.countryid.picture }}"></td>
+                <td align="center">{{ team.temps2}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table-bordered table-dark table-hover score ml-5">
+        <thead>
+        <tr>
+            <th>Nom de l'équipe</th>
+            <th>Drapeau</th>
+            <th>Temps</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ winner.nom }}</td>
+                <td align="center"><img class="flag" src="{{ winner.countryid.picture }}"></td>
+                <td align="center"> {{ winner.temps2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}
