@@ -64,6 +64,12 @@ class Player
      */
     private $picture;
 
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="bio", type="text", nullable=true)
+     */
+    private $bio;
 
     /**
      * Get id

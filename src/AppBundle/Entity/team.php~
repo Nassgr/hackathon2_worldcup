@@ -245,4 +245,5 @@ class team
     {
         return $this->temps2;
     }
+
 }
