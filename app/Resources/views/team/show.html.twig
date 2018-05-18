@@ -2,35 +2,34 @@
 
 {% block body %}
 <div class="container">
-    <div class="team-title text-center">
-        <h1>{{ team.nom }}</h1>
+    <div class="row">
+        <div class="team-title text-center">
+            <h1 class="text-center">{{ team.nom }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <img src="{{ team.countryid.picture }}" height="100" width="150"></td>
+    </div>
+    <div class="row">
+        {% for player in players %}
+            <div class="col-sm-3">
+                <figure class="snip1477" style="background-image: url('{{ player.picture }}');  background-repeat: no-repeat; background-size: cover;">
+                    <div class="title">
+                        <div>
+                            <h2>{{ player.name }}</h2>
+                            <h4>{{ player.surname }}</h4>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h3>Age : {{ player.age }} ans</h3>
+                        <h3>Role : {{ player.role }}</h3>
+                    </figcaption>
+                    <a href="#"></a>
+                </figure>
+            </div>
+        {% endfor %}
     </div>
 
-    <table class="table table-striped table-dark table-hover">
-        <tbody>
-        <tr>
-            <td><img src="{{ team.countryid.picture }}" height="100" width="150"></td>
-        </tr>
-        <tr>{% for player in players %}
-                    <div class="col-sm-3">
-                        <figure class="snip1477" style="background-image: url('{{ player.picture }}');  background-repeat: no-repeat; background-size: cover;">
-                            <div class="title">
-                                <div>
-                                    <h2>{{ player.name }}</h2>
-                                    <h4>{{ player.surname }}</h4>
-                                </div>
-                            </div>
-                            <figcaption>
-                                <h3>Age : {{ player.age }} ans</h3>
-                                <h3>Role : {{ player.role }}</h3>
-                            </figcaption>
-                            <a href="#"></a>
-                        </figure>
-                    </div>
-            {% endfor %}
-            </tr>
-        </tbody>
-    </table>
 </div>
 
 {% endblock %}
