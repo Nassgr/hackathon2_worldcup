@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Country
 {
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\team", mappedBy="countryid")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $teams;
+
+
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\team", mappedBy="countryid")
      * @ORM\JoinColumn(nullable=true)
@@ -102,12 +110,11 @@ class Country
 
     /**
      * Set teams
-     *
-     * @param \AppBundle\Entity\Player $teams
+     * @param \AppBundle\Entity\team $teams
      *
      * @return Country
      */
-    public function setTeams(\AppBundle\Entity\Player $teams)
+    public function setTeams(\AppBundle\Entity\team $teams = null)
     {
         $this->teams = $teams;
 
@@ -116,8 +123,7 @@ class Country
 
     /**
      * Get teams
-     *
-     * @return \AppBundle\Entity\Player
+     * @return \AppBundle\Entity\team
      */
     public function getTeams()
     {
@@ -128,4 +134,5 @@ class Country
     {
         return $this->name;
     }
+
 }

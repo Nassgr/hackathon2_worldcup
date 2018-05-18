@@ -19,6 +19,12 @@ class team
     private $countryid;
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $countryid;
+
+    /**
     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="teamid")
     * @ORM\JoinColumn(nullable=false)
     */
