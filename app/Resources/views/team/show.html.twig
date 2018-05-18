@@ -2,14 +2,12 @@
 
 {% block body %}
 <div class="container">
+            <h1 class="team-title text-center">{{ team.nom }}</h1>
     <div class="row">
-        <div class="team-title text-center">
-            <h1 class="text-center">{{ team.nom }}</h1>
-        </div>
+        <img src="{{ team.countryid.picture }}" height="100" width="150" class="mx-auto justify-content-center">
     </div>
-    <div class="row">
-        <img src="{{ team.countryid.picture }}" height="100" width="150"></td>
-    </div>
+</div>
+<div class="container">
     <div class="row">
         {% for player in players %}
             <div class="col-sm-3">
