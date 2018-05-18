@@ -7,12 +7,12 @@
 
 {% block body %}
     <section class="playerList">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             {% for player in players %}
-                <div class="col-sm-3">
+                <div class="col-3">
+                    {#<figure class="snip1477">#}
                     <figure class="snip1477" style="background-image: url('{{ player.picture }}');  background-repeat: no-repeat; background-size: cover;">
-
                         <div class="title">
                             <div>
                                 <h2>{{ player.name }}</h2>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <figcaption>
-                            <img src="{{ player.teamid.countryid.picture }}">
+                            <img src="{{ player.picture}}">
                             <h3>Age : {{ player.age }} ans</h3>
                             <h3>Role : {{ player.role }}</h3>
                         </figcaption>
