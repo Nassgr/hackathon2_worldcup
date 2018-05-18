@@ -13,10 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Player
 {
 
-
-
-
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\team", inversedBy="players")
      * @ORM\JoinColumn(nullable=false)
@@ -68,6 +64,12 @@ class Player
      */
     private $picture;
 
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="bio", type="text", nullable=true)
+     */
+    private $bio;
 
     /**
      * Get id
