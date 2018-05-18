@@ -70,7 +70,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         foreach ($teams as $team) {
             $time = $this->generateTime();
-            $timeMax = date('m:s', 200);
+            $timeMax = date('m:s', 10000);
             $team->setTemps($time);
             $em->createQueryBuilder()->update('AppBundle:team', 't')
                 ->set('t.temps', $em->createQueryBuilder()->expr()->literal($time))
@@ -106,6 +106,6 @@ class DefaultController extends Controller
      */
     public function generateTime()
     {
-        return date('m:s', mt_rand(10, 180));
+        return date('m:s', mt_rand(10, 120));
     }
 }
